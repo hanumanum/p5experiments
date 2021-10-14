@@ -26,8 +26,8 @@ class Particle {
         if(this.counddown<=0){
             this.counddown = this.counddownInitial
             this.fired=false
-            this.xv = int(random([-1,1]))
-            this.yv = int(random([-1,1]))
+            this.xv = random([-0.5,-1,0.5,1]) //map(noise(this.xv,this.yv),0,1,-1,1) //
+            this.yv = random([-0.5,-1,0.5,1]) //map(noise(this.xv,this.yv),0,1,-1,1)
     
         }
         else{

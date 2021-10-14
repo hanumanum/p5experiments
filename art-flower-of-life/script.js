@@ -4,7 +4,7 @@ const X = CANVAS_WIDTH/2
 const Y = CANVAS_HEIGHT/2
 const R = 100
 const ITERATIONS = 12
-const FRAME_RATE = 30
+const FRAME_RATE = 5
 const STROKE_COLOR = "yellow"
 const STROKE_WEIGHT = 2
 
@@ -16,7 +16,7 @@ let points = [
 ]
 
 function setup() {
-  createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
+  createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT)
   frameRate(FRAME_RATE)
   
   stroke(STROKE_COLOR)

@@ -3,7 +3,7 @@ const H = 800
 let CHORDS = []
 let r = 5
 const rStep = 40
-const COUNT = 20
+const COUNT = 10
 
 function setup() {
   createCanvas(W, H)

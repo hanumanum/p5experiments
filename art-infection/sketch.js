@@ -1,8 +1,8 @@
 const W = 1400
 const H = 800
 const POINTS = []
-const COUNT = 200
-const SEEKRADIUS = 30
+const COUNT = 100
+const SEEKRADIUS = 40
 let f
 
 function setup() {

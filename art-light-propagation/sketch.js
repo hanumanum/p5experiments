@@ -1,6 +1,6 @@
 const W = 1000
 const H = 800
-const numberOfParticles = 100
+const numberOfParticles = 70
 const particles = []
 const particleRadius = 8
 const seekRadius = 50

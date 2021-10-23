@@ -1,7 +1,7 @@
 const W = 800
 const H = 800
 const POINTS = []
-const COUNT = 25
+const COUNT = 18
 const PADDING = 50
 
 function setup() {

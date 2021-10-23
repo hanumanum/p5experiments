@@ -18,7 +18,7 @@
 const W = 1000
 const H = 800
 const RECTS = []
-const COUNT = 400
+const COUNT = 200
 
 function setup() {
   createCanvas(W, H)

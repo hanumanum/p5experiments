@@ -1,7 +1,7 @@
 const x = 1100
 const y = 220
 const fontSize = 30
-const lettersCount = 36
+const lettersCount = 35
 const rowsCount = 9
 const lettersMargin = 20
 let alphabet = []
@@ -13,7 +13,7 @@ function setup() {
   createCanvas(1250, 600)
   strokeWeight(1)
   background("black")
-  frameRate(10)
+  frameRate(30)
   alphabet = makeAlphabet(lettersCount)
 }
 
@@ -27,8 +27,14 @@ function draw() {
   }
   else {
     let char = text.pop()
-    drawLetterByLines(char, chatX, chatY, 40, 1, "blue")
+    drawLetterByLines(char, chatX, chatY, 40, 1, "#50FF3B")
     chatX += 50
+  }
+
+  if(chatY>height){
+    background("black")
+    chatX = 30
+    chatY = 40
   }
 
 

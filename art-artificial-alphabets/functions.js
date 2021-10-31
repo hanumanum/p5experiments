@@ -10,6 +10,9 @@ const getEmptyLetterMatrix = function () {
 
 function makeAlphabet(lettersCount) {
     const alphabet = []
+    //white space 
+    alphabet.push(getEmptyLetterMatrix())
+
     for (let i = 0; i < lettersCount; i++) {
         let emptyLetterMatrix = getEmptyLetterMatrix()
         let matrix = makeRandomLetterGrid(emptyLetterMatrix)

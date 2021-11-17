@@ -1,7 +1,8 @@
 let _image = {}
 let greedSize = 5
 const animationFunctions = [
-  drawByLines
+  drawByLinesRandom
+  , drawByLines
   , drawByAngles
   , drawByCrosses
   , drawByLoopedLines
@@ -17,6 +18,7 @@ let currentAnimation = animationFunctions[0]
 
 function mouseClicked() {
   clear()
+  loop()
   console.log(frameCount)
   frameCount = 0
   if (animationFunctionIndex < animationFunctions.length - 1) {
@@ -42,16 +44,7 @@ function setup() {
 function draw() {
   background(10)
 
-  let functionName = animationFunctions[animationFunctionIndex].name
-  if (functionName == "drawByAngles" || functionName == "drawByLetters" || functionName == "drawByLettersWaved" || functionName == "drawByBubbles" || functionName == "drawByElipsesOscilated") {
-    greedSize = 15
-  }
-  else if (functionName == "drawByLines" || functionName == "drawByElipsesRandomized") {
-    greedSize = 5
-  }
-  else {
-    greedSize = 20
-  }
+  setGreedSize(animationFunctionIndex)
 
   for (let y = 0; y < _image.height; y += greedSize) {
     for (let x = 0; x < _image.width; x += greedSize) {
@@ -141,8 +134,8 @@ function drawByLoopedLines(x, y, a, greedSize, ind) {
   push()
   stroke(getRandomColor())
   strokeWeight(2)
-  let length = random(-2 * greedSize/3, 2 * greedSize/3) / 2
-  let height = random(-2 * greedSize/3, 2 * greedSize/3) / 2
+  let length = random(-2 * greedSize / 3, 2 * greedSize / 3) / 2
+  let height = random(-2 * greedSize / 3, 2 * greedSize / 3) / 2
   strokeWeight(3)
   line(x, y, x + height, y + length)
   pop()
@@ -163,6 +156,21 @@ function drawByElipsesOscilated(x, y, a, greedSize, ind) {
   pop()
 }
 
+function drawByLinesRandom(x,y, a, greedSize, ind){
+  push()
+  stroke("white")
+  translate(x, y)
+  strokeWeight(random(0,5))
+  let ang = getDirectedRandomAngles()
+  
+  rotate(ang)
+  line(random(0,20),0, random(1,60),0)
+  //translate(x, y)
+
+  pop()
+  noLoop()
+}
+
 function getRandomColor() {
   //const colors = ["#fd00ff","#fdff00","#00ff38","#00f9ff","#3c00ff"]
   const colors = ["#FFEB00", "#FC0019", "#01FF4F", "#FF01D7", "#5600CC", "#00EDF5"]
@@ -173,4 +181,24 @@ function getRandomColor() {
 function getRandomLatter() {
   const letters = ["Ա", "Բ", "Գ", "Դ", "Ե", "Զ", "Է", "Ը", "Թ", "Ժ", "Ի", "Լ", "Խ", "Ծ", "Կ", "Հ", "Ձ", "Ղ", "Ճ", "Մ", "Յ", "Ն", "Շ", "Ո", "Չ", "Պ", "Ջ", "Ռ", "Ս", "Վ", "Տ", "Ր", "Ց", "ւ", "Փ", "Ք"]
   return random(letters)
+}
+
+function getDirectedRandomAngles(){
+  return random([0, PI/4, PI/2])
+}
+
+function setGreedSize(animationFunctionIndex){
+  let functionName = animationFunctions[animationFunctionIndex].name
+  if (functionName == "drawByAngles" || functionName == "drawByLetters" || functionName == "drawByLettersWaved" || functionName == "drawByBubbles" || functionName == "drawByElipsesOscilated") {
+    greedSize = 15
+  }
+  else if (functionName == "drawByLines" || functionName == "drawByElipsesRandomized") {
+    greedSize = 5
+  }
+  else if(functionName== "drawByLinesRandom"){
+    greedSize=10
+  }
+  else {
+    greedSize = 20
+  }
 }

@@ -34,13 +34,13 @@ function drawAllAlphabet(alphabet, rowsCount, fontSize, lettersMargin, startX, s
             let xl = startX + j * size * letterMatrix.length
             let matrix = alphabet[iter]
            // drawLetterGrid(matrix, xl, yl, fontSize)
-            drawLetterByLines(matrix, xl, yl, fontSize, 2, "#50FF3B")
+            drawLetter_lines(matrix, xl, yl, fontSize, 2, "#50FF3B")
             iter++
         }
     }
 }
 
-function drawLetterByLines(matrix, x, y, fontSize, _strokeWeight, _textColor) {
+function drawLetter_lines(matrix, x, y, fontSize, _strokeWeight, _textColor) {
     //Find and fill vertical lines
     let size = fontSize / matrix.length
     for (let i = 0; i < matrix[0].length; i++) {

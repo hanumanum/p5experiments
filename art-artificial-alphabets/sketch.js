@@ -8,6 +8,7 @@ let alphabet = []
 let text = []
 let chatX = 30
 let chatY = 0
+let chatCounter = 0
 
 function setup() {
   createCanvas(1250, 600)
@@ -27,7 +28,7 @@ function draw() {
   }
   else {
     let char = text.pop()
-    drawLetterByLines(char, chatX, chatY, 40, 1, "#50FF3B")
+    drawLetter_lines(char, chatX, chatY, 40, 1, "#50FF3B")
     chatX += 50
   }
 

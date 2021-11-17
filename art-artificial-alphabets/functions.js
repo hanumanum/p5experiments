@@ -18,11 +18,14 @@ function makeAlphabet(lettersCount) {
         let matrix = makeRandomLetterGrid(emptyLetterMatrix)
         alphabet.push(matrix)
     }
-
+    console.log(alphabet)
     return alphabet
 }
 
-function drawAllAlphabet(alphabet, rowsCount, fontSize, lettersMargin, startX, startY) {
+function drawAllAlphabet(alphabet, rowsCount, fontSize, lettersMargin, startX, startY, drawFunction) {
+    fill("black")
+    let columnsCount = alphabet.length/rowsCount
+    rect(startX, startY, columnsCount*(fontSize + lettersMargin),  rowsCount*(fontSize + lettersMargin))
     let letterMatrix = alphabet[0]
     let iter = 0
     let size = fontSize / letterMatrix.length
@@ -34,10 +37,86 @@ function drawAllAlphabet(alphabet, rowsCount, fontSize, lettersMargin, startX, s
             let xl = startX + j * size * letterMatrix.length
             let matrix = alphabet[iter]
            // drawLetterGrid(matrix, xl, yl, fontSize)
-            drawLetter_lines(matrix, xl, yl, fontSize, 2, "#50FF3B")
+           drawFunction(matrix, xl, yl, fontSize, 1, "#50FF3B")
             iter++
         }
     }
+}
+
+function drawLetter_circles(matrix, x, y, fontSize, _strokeWeight, _textColor) {
+    //Find and fill vertical lines
+    let size = fontSize / matrix.length
+    for (let i = 0; i < matrix[0].length; i++) {
+        for (let j = 0; j < matrix.length; j++) {
+            if (matrix[j][i] == 1) {
+                currentX = x + i * size
+                currentY = y + j * size
+                push()
+                stroke(_textColor)
+                ellipse(currentX, currentY, size)
+                pop()
+            }
+        }
+    }
+}
+
+
+function drawLetter_circlesAndLines(matrix, x, y, fontSize, _strokeWeight, _textColor) {
+    //Find and fill vertical lines
+    let size = fontSize / matrix.length
+    for (let i = 0; i < matrix[0].length; i++) {
+        let currentX = undefined
+        let currentY = undefined
+        let prevX = undefined
+        let prevY = undefined
+        for (let j = 0; j < matrix.length; j++) {
+            if (matrix[j][i] == 1) {
+                currentX = x + i * size
+                currentY = y + j * size
+                if (prevX != undefined && prevY != undefined) {
+                    push()
+                    stroke(_textColor)
+                    strokeCap(ROUND)
+                    strokeWeight(_strokeWeight)
+                    line(prevX, prevY, currentX, currentY)
+                    noFill()
+                    ellipse(currentX, currentY, fontSize/5)
+                    pop()
+                }
+
+                prevX = currentX
+                prevY = currentY
+
+            }
+        }
+    }
+
+    //Find and fill horizontal lines
+    for (let i = 0; i < matrix.length; i++) {
+        let currentX = undefined
+        let currentY = undefined
+        let prevX = undefined
+        let prevY = undefined
+        for (let j = 0; j < matrix[i].length; j++) {
+            if (matrix[i][j] == 1) {
+                currentX = x + j * size
+                currentY = y + i * size
+                if (prevX != undefined && prevY != undefined) {
+                    push()
+                    stroke(_textColor)
+                    strokeCap(ROUND)
+                    strokeWeight(_strokeWeight)
+                    line(prevX, prevY, currentX, currentY)
+                    pop()
+                }
+
+                prevX = currentX
+                prevY = currentY
+
+            }
+        }
+    }
+
 }
 
 function drawLetter_lines(matrix, x, y, fontSize, _strokeWeight, _textColor) {
@@ -99,11 +178,11 @@ function drawLetter_lines(matrix, x, y, fontSize, _strokeWeight, _textColor) {
 
 function makeRandomLetterGrid(letterMatrix) {
     let anchorPointsCount = random(letterMatrix.length * letterMatrix[0].length / 3, letterMatrix.length * letterMatrix[0].length)
-    let letterMatrixAnchored = setRandomAnchorePoints(letterMatrix, anchorPointsCount)
+    let letterMatrixAnchored = setRandomAnchorPoints(letterMatrix, anchorPointsCount)
     return letterMatrixAnchored
 }
 
-function setRandomAnchorePoints(_matrix, count) {
+function setRandomAnchorPoints(_matrix, count) {
     for (let c = 0; c < count; c++) {
         let i = int(random(0, _matrix.length))
         let j = int(random(0, _matrix[0].length))
@@ -136,3 +215,24 @@ function drawLetterGrid(letterMatrix, x, y, fontSize) {
     }
     pop()
 }
+
+
+function initFunctionChanger(){
+    let alphabetlists = document.getElementById("alphabet-functions-list")
+    for (let funct of functionsList) {
+      let li = document.createElement("li")
+      li.innerHTML = funct.name.split("_")[1]
+      li.id = funct.name
+      li.addEventListener("click", changeCurrentFunction)
+      alphabetlists.append(li);
+    }
+    
+    
+    function changeCurrentFunction(e) {
+      for (let f of functionsList) {
+        if (f.name == e.target.id) {
+          currentFunction = f
+        }
+      }
+    }
+  }

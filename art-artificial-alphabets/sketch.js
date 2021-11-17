@@ -1,3 +1,8 @@
+let functionsList = [drawLetter_circles, drawLetter_circlesAndLines, drawLetter_lines]
+let currentFunction = functionsList[0]
+initFunctionChanger()
+
+
 const x = 1100
 const y = 220
 const fontSize = 30
@@ -16,23 +21,32 @@ function setup() {
   background("black")
   frameRate(30)
   alphabet = makeAlphabet(lettersCount)
+
+}
+
+function mouseClicked() {
+  chatX = 30
+  chatY = 40
+  chatCounter = 0
+  background("black")
+  redraw()
 }
 
 function draw() {
   //background("black")
 
   if (text.length == 0) {
-    text = makeTextRow(alphabet)
+    text = makeTextRow(alphabet, 10, 25)
     chatX = 30
     chatY += 40
   }
   else {
     let char = text.pop()
-    drawLetter_lines(char, chatX, chatY, 40, 1, "#50FF3B")
-    chatX += 50
+    currentFunction(char, chatX, chatY, 30, 1, "#50FF3B")
+    chatX += 40
   }
 
-  if(chatY>height){
+  if (chatY > height) {
     background("black")
     chatX = 30
     chatY = 40
@@ -43,14 +57,14 @@ function draw() {
   stroke("white")
   line(x - lettersMargin, y, x - lettersMargin, width)
   pop()
-  drawAllAlphabet(alphabet, rowsCount, fontSize, lettersMargin, x, y)
-  
+  drawAllAlphabet(alphabet, rowsCount, fontSize, lettersMargin, x, y, currentFunction)
+
 }
 
 
 
-function makeTextRow(alphabet) {
-  const charsCount = random(5, 15)
+function makeTextRow(alphabet, min, max) {
+  const charsCount = random(min, max)
   const text = []
   for (let i = 0; i < charsCount; i++) {
     const char = random(alphabet)

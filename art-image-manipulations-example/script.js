@@ -51,8 +51,3 @@ function draw() {
   line(lineX, 0, lineX, height)
   lineX += 50
 }
-
-function getRandomColor() {
-  const colors = ["#FFEB00", "#FC0019", "#01FF4F", "#FF01D7", "#5600CC", "#00EDF5"]
-  return random(colors)
-}

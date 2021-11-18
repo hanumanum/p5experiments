@@ -79,27 +79,7 @@ function Cell(i, j, xOffset, yOffset) {
         push(); 
         translate(this.x, this.y);
         rotate(radians(30));
-        polygon(0, 0, cellSize, 6);
+        drawPolygon(0, 0, cellSize, 6);
         pop();
     }
-}
-
-function polygon(x, y, radius, npoints) {
-    var angle = TWO_PI / npoints;
-    beginShape();
-    for (var a = 0; a < TWO_PI; a += angle) {
-        var sx = x + cos(a) * radius;
-        var sy = y + sin(a) * radius;
-        vertex(sx, sy);
-    }
-    endShape(CLOSE);
-}   
-
-function getRandomsArray(len, min, max){
-  let randoms = []
-  for(let i=0; i<len; i++){
-    randoms.push(int(random(min,max)))
-  }
-
-  return randoms;
 }

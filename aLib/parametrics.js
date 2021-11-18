@@ -30,3 +30,30 @@ function drawCardioid(size, centerX, centerY, rotation) {
     endShape()
     pop()
 }
+
+
+function drawNoizyCircle(x, y, r, density) {
+    beginShape()
+    for (let a = 0; a <= 2 * PI; a += (2 * PI) / density) {
+      let xn = x + r * cos(a)
+      let yn = y + r * sin(a)
+      let xo = noise(xn, yn) * 5
+      let yo = noise(xn, yn) * 5
+  
+      vertex(xn + xo, yn + yo)
+    }
+    endShape(CLOSE)
+  
+  }
+
+
+  function drawPolygon(x, y, radius, npoints) {
+    var angle = TWO_PI / npoints;
+    beginShape();
+    for (var a = 0; a < TWO_PI; a += angle) {
+        var sx = x + cos(a) * radius;
+        var sy = y + sin(a) * radius;
+        vertex(sx, sy);
+    }
+    endShape(CLOSE);
+}   

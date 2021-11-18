@@ -1,8 +1,3 @@
-let functionsList = [drawLetter_circles, drawLetter_circlesAndLines, drawLetter_lines]
-let currentFunction = functionsList[0]
-initFunctionChanger()
-
-
 const x = 1100
 const y = 220
 const fontSize = 30
@@ -14,6 +9,10 @@ let text = []
 let chatX = 30
 let chatY = 0
 let chatCounter = 0
+
+let functionsList = [drawLetter_circles, drawLetter_circlesAndLines, drawLetter_lines]
+let currentFunction = functionsList[0]
+initFunctionChanger()
 
 function setup() {
   createCanvas(1250, 600)

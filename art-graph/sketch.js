@@ -68,26 +68,3 @@ for (let i = 0; i < COUNT; i++) {
 }
 }
 */
-
-function getRandomColor() {
-  //const colors = ["#fd00ff","#fdff00","#00ff38","#00f9ff","#3c00ff"]
-  const colors = ["#FFEB00", "#FC0019", "#01FF4F", "#FF01D7", "#5600CC", "#00EDF5"]
-  return random(colors)
-  //return color(random(255), random(255), random(255))
-}
-
-
-/*
-function mouseClicked() {
-  RECTS.unshift({
-    x: mouseX,
-    y: mouseY,
-    size: random(0, 100),
-    color: getRandomColor(),
-    directionx: random(-2, 2),
-    directiony: random(-2, 2),
-    rotation: random(-100, 100),
-    rotationVelocity: random(-1, 1)
-  })
-}
-*/

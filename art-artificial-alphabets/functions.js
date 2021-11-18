@@ -18,7 +18,6 @@ function makeAlphabet(lettersCount) {
         let matrix = makeRandomLetterGrid(emptyLetterMatrix)
         alphabet.push(matrix)
     }
-    console.log(alphabet)
     return alphabet
 }
 
@@ -36,7 +35,7 @@ function drawAllAlphabet(alphabet, rowsCount, fontSize, lettersMargin, startX, s
         for (let j = 0; j < alphabet.length / rowsCount; j++) {
             let xl = startX + j * size * letterMatrix.length
             let matrix = alphabet[iter]
-           // drawLetterGrid(matrix, xl, yl, fontSize)
+          
            drawFunction(matrix, xl, yl, fontSize, 1, "#50FF3B")
             iter++
         }

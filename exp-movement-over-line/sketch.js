@@ -27,6 +27,7 @@ function draw() {
 
   oscillate(startX, startY, endX, endY, 10)
   oscillate(200, 500, 150, 60, 10)
+  oscillate(500, 200,  60, 150, 60)
 }
 
 

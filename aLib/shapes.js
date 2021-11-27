@@ -35,19 +35,19 @@ function drawCardioid(size, centerX, centerY, rotation) {
 function drawNoizyCircle(x, y, r, density) {
     beginShape()
     for (let a = 0; a <= 2 * PI; a += (2 * PI) / density) {
-      let xn = x + r * cos(a)
-      let yn = y + r * sin(a)
-      let xo = noise(xn, yn) * 5
-      let yo = noise(xn, yn) * 5
-  
-      vertex(xn + xo, yn + yo)
+        let xn = x + r * cos(a)
+        let yn = y + r * sin(a)
+        let xo = noise(xn, yn) * 5
+        let yo = noise(xn, yn) * 5
+
+        vertex(xn + xo, yn + yo)
     }
     endShape(CLOSE)
-  
-  }
+
+}
 
 
-  function drawPolygon(x, y, radius, npoints) {
+function drawPolygon(x, y, radius, npoints) {
     var angle = TWO_PI / npoints;
     beginShape();
     for (var a = 0; a < TWO_PI; a += angle) {
@@ -56,4 +56,14 @@ function drawNoizyCircle(x, y, r, density) {
         vertex(sx, sy);
     }
     endShape(CLOSE);
-}   
+}
+
+
+function drawMandala(x, y, r, number) {
+    let step = 2 * PI / number
+    for (let t = 0; t < 2 * PI; t += step) {
+        let xc = x + (r / 2) * cos(t)
+        let yc = y + (r / 2) * sin(t)
+        ellipse(xc, yc, r)
+    }
+}

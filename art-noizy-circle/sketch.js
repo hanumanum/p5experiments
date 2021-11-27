@@ -55,30 +55,3 @@ function noizyCirles(x0, y0, r) {
   }
 
 }
-
-/*
-function getAnchorPointCoordinates(x, y, r, number) {
-  const ANG_DELTA = 2 * Math.PI / number
-  const TEXT_R_DELTA = 25
-  let points = {}
-  let n = 0
-
-  for (let ang = 0; ang < 2 * Math.PI - 0.005; ang += ANG_DELTA) {
-    let xn = x + (r) * Math.cos(ang)
-    let yn = y + (r) * Math.sin(ang)
-    let xnt = Math.round(x + ((r + TEXT_R_DELTA)) * Math.cos(ang))
-    let ynt = Math.round(y + ((r + TEXT_R_DELTA)) * Math.sin(ang))
-
-    points[n] = {
-      x: xn,
-      y: yn,
-      tx: xnt,
-      ty: ynt,
-    }
-
-    n++
-  }
-
-  return points
-}
-*/

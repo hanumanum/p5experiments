@@ -31,7 +31,7 @@ function draw() {
       ellipse(x, y, _textSize * 2)
       fill("black")
       ellipse(x, y, 5)
-      drawLetterFlower(letters[i], x, y)
+      drawLetterFlower(letters[i], x, y, Rotations, _textSize)
       fill("white")
       text(letters[i] + " (π/" + Rotations + ")", x - labelXoffset, y + labelYoffset)
       i++
@@ -44,25 +44,8 @@ function draw() {
   }
 }
 
-function drawLetterFlower(letter, x, y) {
-  translate(x, y)
-  for (let ang = 0; ang <= 2 * PI; ang += PI / Rotations) {
-    push()
-    fill("black")
-    textSize(_textSize)
-    rotate(ang)
-    text(letter, 0, 0)
-    pop()
-  }
-  translate(-x, -y)
-}
 
 function mouseClicked() {
   Rotations = RotationsStart
   redraw()
-}
-
-function getRandomColor() {
-  const colors = ["#FFEB00", "#FC0019", "#01FF4F", "#FF01D7", "#5600CC", "#00EDF5"]
-  return random(colors)
 }

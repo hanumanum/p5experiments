@@ -35,22 +35,10 @@ function draw() {
   background("black")
   fill("white")
   ellipse(W / 2, H / 2, _textSize * 2)
-  drawLetterFlower(currentLetter, W / 2, H / 2)
+  drawLetterFlower(currentLetter, W / 2, H / 2, Rotations, _textSize)
   fill("white")
   textSize(_texSizeLabel)
   text(`${currentLetter} (π/${Rotations})`, W-labelOfsetX, H-labelOfsetY)
   noLoop()
 }
 
-function drawLetterFlower(letter, x, y) {
-  translate(x, y)
-  for (let ang = 0; ang <= 2 * PI; ang += PI / Rotations) {
-    push()
-    fill("black")
-    textSize(_textSize)
-    rotate(ang)
-    text(letter, 0, 0)
-    pop()
-  }
-  translate(-x, -y)
-}

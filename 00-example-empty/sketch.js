@@ -1,7 +1,11 @@
+let w = window.innerWidth
+let h = window.innerHeight
+let padding = 50
+
 function setup() {
-  // put setup code here
+  createCanvas(w, h)
 }
 
 function draw() {
-  // put drawing code here
+  background(0)
 }

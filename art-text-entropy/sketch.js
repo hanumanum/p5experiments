@@ -7,7 +7,7 @@ const animationFunctions = [drawCircles_spring, drawCircles_tickle, drawCircles_
 let animationIndex = 0
 
 function preload() {
-  font = loadFont('Arian_Grqi_U.ttf')
+  font = loadFont('../aFonts/Arian_Grqi_U.ttf')
 }
 
 function setup() {
@@ -17,7 +17,7 @@ function setup() {
   textSize(fSize)
 
   pts = extractPoints(msg, 60, 300, fSize, 0.5, 0)
-  pts = setDestinations(pts)
+  pts = setPointsDestinationsForOscilator(pts, 50)
 
   stroke(255)
   strokeWeight(2)
@@ -49,11 +49,6 @@ function mouseClicked(){
   console.log(animationIndex)
 }
 
-
-function getRandomColor() {
-  const colors = ["#FFEB00", "#FC0019", "#01FF4F", "#FF01D7", "#5600CC", "#00EDF5"]
-  return random(colors)
-}
 
 function drawCircles_tickle(j, p) {
   let arr = [-j,0,j]
@@ -88,28 +83,14 @@ function drawCircles_with_mouse(j, p) {
   ellipse(x, y, 2)
 }
 
-
-
 function drawCircles_oscilator(j, p) {
   fill("white")
   noStroke()
   oscillate_linear(p.x, p.y, p.newX, p.newY, 20)
 }
 
-
-function oscillate_linear(x1, y1, x2, y2, speed) {
-  //MATH referance: https://skysmart.ru/articles/mathematic/grafik-linejnoj-funkcii
-  let a = (y1 - y2) / (x1 - x2)
-  let b = y1 - a * x1
-  let iter = sin(frameCount / speed)
-  let newX = map(iter, -1, 1, x1, x2)
-  let newY = a * newX + b
-  ellipse(newX, newY, random(1,5))
-}
-
-
-function setDestinations(pts) {
-  let factor = 50
+function setPointsDestinationsForOscilator(pts, factor) {
+  //pts is array returned by extractPoints for 
   for (let p of pts) {
     for (let j = 0; j < stopPoints.length; j++) {
       if (p.x >= stopPoints[j] && p.x < stopPoints[j + 1]) {
@@ -120,12 +101,4 @@ function setDestinations(pts) {
   }
 
   return pts;
-}
-
-
-function extractPoints(text, xPos, yPos, fSize, sampleFactor, simplifyThreshold) {
-  return font.textToPoints(text, xPos, yPos, fSize, {
-    sampleFactor, // increase for more points
-    simplifyThreshold // increase to remove collinear points
-  })
 }

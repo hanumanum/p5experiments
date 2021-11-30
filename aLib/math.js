@@ -24,3 +24,7 @@ async function getQuantumRandomNumbers(length = 1) {
     const json = await response.json()
     return json.data
 }
+
+Array.prototype.shiftRandom = function () {
+    return shuffleArray(this).shift()
+}

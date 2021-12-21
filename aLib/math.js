@@ -2,6 +2,15 @@ function randomDirection() {
     return (Math.random() > 0.5) ? 1 : -1;
 }
 
+function getRandomsArray(len, min, max) {
+    let randoms = []
+    for (let i = 0; i < len; i++) {
+        randoms.push(int(random(min, max)))
+    }
+
+    return randoms;
+}
+
 function getRandomSubArray(arrFrom, numberOfValues) {
     if (numberOfValues >= arrFrom.length) {
         return arrFrom
@@ -25,6 +34,16 @@ async function getQuantumRandomNumbers(length = 1) {
     return json.data
 }
 
+function splitRangeRandomly(min, max, numberOfValues) {
+    let values = []
+    for (let i = 0; i < numberOfValues; i++) {
+        values.push(int(random(min, max)))
+    }
+    values.sort((a, b) => a - b)
+    return values
+}
+
 Array.prototype.shiftRandom = function () {
     return shuffleArray(this).shift()
 }
+

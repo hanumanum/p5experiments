@@ -13,13 +13,3 @@ class CircularArray {
         return this.array[this.index++]
     }
 }
-
-
-function getRandomsArray(len, min, max) {
-    let randoms = []
-    for (let i = 0; i < len; i++) {
-        randoms.push(int(random(min, max)))
-    }
-
-    return randoms;
-}

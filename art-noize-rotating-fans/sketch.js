@@ -1,5 +1,5 @@
-const W = 1200
-const H = 800
+const W = window.innerWidth - 200
+const H = window.innerHeight - 190
 const step = 60
 
 function setup() {

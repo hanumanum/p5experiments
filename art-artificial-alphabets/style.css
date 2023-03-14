@@ -1,0 +1,13 @@
+ul li {
+    list-style-type: none;
+    cursor: pointer;
+    display: inline;
+    border: solid 1px rgb(210, 210, 210);
+    margin: 0 5px;
+    padding: 5px;
+}
+
+canvas {
+    cursor: pointer;
+}
+

@@ -217,20 +217,24 @@ function drawLetterGrid(letterMatrix, x, y, fontSize) {
 
 
 function initFunctionChanger() {
-    let alphabetlists = document.getElementById("alphabet-functions-list")
+    let alphabetlists = document.createElement("ul")
+    alphabetlists.id = "alphabet-functions-list"
     for (let funct of functionsList) {
         let li = document.createElement("li")
-        li.innerHTML = funct.name.split("_")[1]
-        li.id = funct.name
+        li.innerHTML = funct.title
+        li.id = funct.title
         li.addEventListener("click", changeCurrentFunction)
         alphabetlists.append(li);
     }
 
 
+    const main = document.querySelectorAll("main")
+    main[0].append(alphabetlists)
+
     function changeCurrentFunction(e) {
         for (let f of functionsList) {
-            if (f.name == e.target.id) {
-                currentFunction = f
+            if (f.title == e.target.id) {
+                currentFunction = f.fn
             }
         }
     }

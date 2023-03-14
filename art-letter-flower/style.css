@@ -1,12 +1,16 @@
 .controls {
     width: 360px;
     position: absolute;
-    left: 1220px;
-    top: 15px;
+    left: 1250px;
+    top: 50px;
     font-size: 20px;
+    background-color: whitesmoke;
+    padding: 25px;
+    border: 2px solid black;
 }
 
 .controls input {
     width: 100%;
     height: 20px;
 }
+

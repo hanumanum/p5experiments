@@ -1,5 +1,5 @@
-let w = window.innerWidth
-let h = window.innerHeight
+let w = window.innerWidth - 270
+let h = window.innerHeight - 120
 let greedSize = 25
 
 let font

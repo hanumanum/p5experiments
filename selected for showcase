@@ -1,28 +1,12 @@
-http://127.0.0.1:5500/art-arcs/
-http://127.0.0.1:5500/art-arrows/
-http://127.0.0.1:5500/art-artificial-alphabets/
-http://127.0.0.1:5500/art-cardioid/
-http://127.0.0.1:5500/art-constalation/ TODO: optimize
-http://127.0.0.1:5500/art-floating-points/ TODO: make more artistic
-http://127.0.0.1:5500/art-graph/
-http://127.0.0.1:5500/art-infection/
-http://127.0.0.1:5500/art-letter-flower/
-http://127.0.0.1:5500/art-letter-flowers/
-
-http://127.0.0.1:5500/art-light-propagation/ TODO: recreate as TUNDER
-http://127.0.0.1:5500/art-noize-rotating-fans/
-http://127.0.0.1:5500/art-oscilating-squares/
-http://127.0.0.1:5500/art-particles/      TODO: resize
-http://127.0.0.1:5500/art-psy-rect-blanding-modes/
-http://127.0.0.1:5500/art-snowflakes/ TODO: complete
-http://127.0.0.1:5500/art-text-circle-packing-edges/
-http://127.0.0.1:5500/art-text-entropy/ TODO: create tooltips
 http://127.0.0.1:5500/art-text-flow-fields/ TODO: make more artistic, optimize
 http://127.0.0.1:5500/art-text-modifications/ TODO: make tooltips
-http://127.0.0.1:5500/exp-flow-fields/ TODO: make something more artistic
     
-
 
 
 ????
 http://127.0.0.1:5500/art-circle-packing/
+
+
+TODO: change fonts 
+TODO: change background and buttons styles
+TODO: create first page

@@ -1,8 +1,40 @@
 body {
     padding: 0;
     margin: 0;
+    background-color: whitesmoke;
 }
 
 main {
+    text-align: center;
+}
+
+#go-prev,
+#go-next {
+    position: absolute;
+    top: 45%;
+    z-index: 1000;
+    width: 50px;
+    background-color: whitesmoke;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    padding: 2px;
+    border: solid 1px rgb(210, 210, 210);
+    border-radius: 2px;
+}
+
+#go-prev {
+    left: 25px;
+}
+
+#go-next {
+    right: 25px;
+}
+
+h1, h2{
+    text-align: center;
+}
+
+.instructions{
     text-align: center;
 }

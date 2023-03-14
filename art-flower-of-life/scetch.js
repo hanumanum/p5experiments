@@ -4,7 +4,7 @@ const X = CANVAS_WIDTH/2
 const Y = CANVAS_HEIGHT/2
 const R = 100
 const ITERATIONS = 12
-const FRAME_RATE = 5
+const FRAME_RATE = 7
 const STROKE_COLOR = "yellow"
 const STROKE_WEIGHT = 2
 
@@ -26,8 +26,6 @@ function setup() {
 
 function draw() {
   background("black");
-  
-  //console.log(points)
   
   for(let i = 0; i<points.length; i++){
     circle(points[i].x, points[i].y, R);

@@ -1,5 +1,5 @@
-let w = window.innerWidth
-let h = window.innerHeight
+const w = window.innerWidth - 200
+const h = window.innerHeight - 190
 let xs = []
 let ys = []
 let xsM = []
@@ -12,6 +12,10 @@ let padding = 50
 function setup() {
   createCanvas(w, h)
   background("black")
+  makeStars()
+}
+
+function makeStars() {
   xs = getRandomsArray(count, padding, w - padding)
   ys = getRandomsArray(count, padding, h - padding)
 
@@ -38,6 +42,8 @@ function draw() {
       }
     }
   }
+}
 
-  //noLoop()
+function mouseClicked() {
+  makeStars()
 }

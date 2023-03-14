@@ -10,16 +10,20 @@ let chatX = 30
 let chatY = 0
 let chatCounter = 0
 
-let functionsList = [drawLetter_circles, drawLetter_circlesAndLines, drawLetter_lines]
-let currentFunction = functionsList[0]
-initFunctionChanger()
+let functionsList = [
+  { title: "first alphabet", fn: drawLetter_circlesAndLines },
+  { title: "second alphabet", fn: drawLetter_circles },
+  { title: "third alphabet", fn: drawLetter_lines }]
+let currentFunction = functionsList[0].fn
+
 
 function setup() {
-  createCanvas(win, 600)
+  createCanvas(1250, 600)
   strokeWeight(1)
   background("black")
   frameRate(30)
   alphabet = makeAlphabet(lettersCount)
+  initFunctionChanger()
 }
 
 function mouseClicked() {

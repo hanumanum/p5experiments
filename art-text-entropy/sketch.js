@@ -3,7 +3,7 @@ const fSize = 150
 const msg = 'Է ն տ ր ո պ ի ա ...'
 let pts = [] // store path data
 const stopPoints = [0, 140, 270, 426, 550, 680, 825, 963, 1300]
-const animationFunctions = [drawCircles_spring, drawCircles_tickle, drawCircles_with_mouse,drawCircles_oscilator]
+const animationFunctions = [drawCircles_spring, drawCircles_tickle, drawCircles_with_mouse, drawCircles_oscilator]
 let animationIndex = 0
 
 function preload() {
@@ -31,7 +31,7 @@ function draw() {
     const p = pts[i]
     for (let j = 0; j < stopPoints.length; j++) {
       if (p.x > stopPoints[j] && p.x < stopPoints[j + 1]) {
-        const animationFunction =  animationFunctions[animationIndex]
+        const animationFunction = animationFunctions[animationIndex]
         animationFunction(j, p)
       }
     }
@@ -39,19 +39,19 @@ function draw() {
 }
 
 
-function mouseClicked(){
-  if(animationIndex<animationFunctions.length-1){
-    animationIndex++  
+function mouseClicked() {
+  if (animationIndex < animationFunctions.length - 1) {
+    animationIndex++
   }
-  else{
-    animationIndex=0
+  else {
+    animationIndex = 0
   }
   console.log(animationIndex)
 }
 
 
 function drawCircles_tickle(j, p) {
-  let arr = [-j,0,j]
+  let arr = [-j, 0, j]
   noStroke()
   fill("white")
   ellipse(p.x + random(arr), p.y + random(arr), 3)
@@ -94,7 +94,7 @@ function setPointsDestinationsForOscilator(pts, factor) {
   for (let p of pts) {
     for (let j = 0; j < stopPoints.length; j++) {
       if (p.x >= stopPoints[j] && p.x < stopPoints[j + 1]) {
-        p.newX = random(p.x-(j + 1)*factor, p.x+j*factor)
+        p.newX = random(p.x - (j + 1) * factor, p.x + j * factor)
         p.newY = random(p.y - j * factor, p.y + j * factor)
       }
     }

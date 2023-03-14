@@ -23,8 +23,8 @@ function makeAlphabet(lettersCount) {
 
 function drawAllAlphabet(alphabet, rowsCount, fontSize, lettersMargin, startX, startY, drawFunction) {
     fill("black")
-    let columnsCount = alphabet.length/rowsCount
-    rect(startX, startY, columnsCount*(fontSize + lettersMargin),  rowsCount*(fontSize + lettersMargin))
+    let columnsCount = alphabet.length / rowsCount
+    rect(startX, startY, columnsCount * (fontSize + lettersMargin), rowsCount * (fontSize + lettersMargin))
     let letterMatrix = alphabet[0]
     let iter = 0
     let size = fontSize / letterMatrix.length
@@ -35,8 +35,8 @@ function drawAllAlphabet(alphabet, rowsCount, fontSize, lettersMargin, startX, s
         for (let j = 0; j < alphabet.length / rowsCount; j++) {
             let xl = startX + j * size * letterMatrix.length
             let matrix = alphabet[iter]
-          
-           drawFunction(matrix, xl, yl, fontSize, 1, "#50FF3B")
+
+            drawFunction(matrix, xl, yl, fontSize, 1, "#50FF3B")
             iter++
         }
     }
@@ -79,7 +79,7 @@ function drawLetter_circlesAndLines(matrix, x, y, fontSize, _strokeWeight, _text
                     strokeWeight(_strokeWeight)
                     line(prevX, prevY, currentX, currentY)
                     noFill()
-                    ellipse(currentX, currentY, fontSize/5)
+                    ellipse(currentX, currentY, fontSize / 5)
                     pop()
                 }
 
@@ -216,22 +216,22 @@ function drawLetterGrid(letterMatrix, x, y, fontSize) {
 }
 
 
-function initFunctionChanger(){
+function initFunctionChanger() {
     let alphabetlists = document.getElementById("alphabet-functions-list")
     for (let funct of functionsList) {
-      let li = document.createElement("li")
-      li.innerHTML = funct.name.split("_")[1]
-      li.id = funct.name
-      li.addEventListener("click", changeCurrentFunction)
-      alphabetlists.append(li);
+        let li = document.createElement("li")
+        li.innerHTML = funct.name.split("_")[1]
+        li.id = funct.name
+        li.addEventListener("click", changeCurrentFunction)
+        alphabetlists.append(li);
     }
-    
-    
+
+
     function changeCurrentFunction(e) {
-      for (let f of functionsList) {
-        if (f.name == e.target.id) {
-          currentFunction = f
+        for (let f of functionsList) {
+            if (f.name == e.target.id) {
+                currentFunction = f
+            }
         }
-      }
     }
-  }
+}

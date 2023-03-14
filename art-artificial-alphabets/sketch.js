@@ -15,12 +15,11 @@ let currentFunction = functionsList[0]
 initFunctionChanger()
 
 function setup() {
-  createCanvas(1250, 600)
+  createCanvas(win, 600)
   strokeWeight(1)
   background("black")
   frameRate(30)
   alphabet = makeAlphabet(lettersCount)
-
 }
 
 function mouseClicked() {

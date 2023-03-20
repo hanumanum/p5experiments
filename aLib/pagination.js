@@ -44,6 +44,9 @@ const pages = [
     ,
     {
         url: "art-particles"
+    },
+    {
+        url: "art-text-modifications"
     }
     ,
     {
@@ -63,19 +66,21 @@ const pages = [
     }
     ,
     {
+        url: "art-handdrawn-circles-on-archimedian-spiral"
+    }
+    ,
+    {
         url: "art-text-flow-fields"
     }
-    /*
-    {
-        url: "art-floating-points"
-    }*/
-
 ]
 
 
 const findCurrentIndex = () => {
+    const slug = document.location.pathname
+        .split("/")
+        .filter((e) => e !== "")
+        .pop();
 
-    const slug = document.location.pathname.split("/").filter((e) => e !== "").pop();
     for (let i = 0; i < pages.length; i++) {
         if (pages[i].url === slug) {
             return i;
@@ -88,6 +93,16 @@ const findCurrentIndex = () => {
 window.onload = () => {
     const currentIndex = findCurrentIndex();
     if (currentIndex === -1) return
+
+    const githubURL = `https://github.com/hanumanum/p5experiments/tree/master/${pages[currentIndex].url}`
+    const githubA = document.createElement("a")
+    githubA.href = githubURL
+    githubA.target = "_blank"
+    githubA.id = "github-link"
+    githubA.title = "view source code"
+    document.body.appendChild(githubA)
+
+
     if (currentIndex > 0) {
         const prev = document.createElement("div");
         prev.id = "go-prev";
@@ -101,13 +116,10 @@ window.onload = () => {
 
 
     if (currentIndex < pages.length - 1) {
-
         const next = document.createElement("div");
-
         next.id = "go-next";
         next.innerHTML = "next";
         next.onclick = () => {
-            console.log(pages[currentIndex + 1]);
             document.location.assign(direction + "/" + pages[currentIndex + 1].url);
         }
 

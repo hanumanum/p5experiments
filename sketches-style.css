@@ -1,3 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+
+html body * {
+    box-sizing: border-box;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -21,6 +28,12 @@ main {
     padding: 2px;
     border: solid 1px rgb(210, 210, 210);
     border-radius: 2px;
+    box-shadow: 1px 1px 1px grey;
+}
+
+#go-prev:hover,
+#go-next:hover {
+    box-shadow: 1px 1px 4px grey;
 }
 
 #go-prev {
@@ -31,10 +44,29 @@ main {
     right: 25px;
 }
 
-h1, h2{
+h1,
+h2 {
     text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
-.instructions{
+.instructions {
     text-align: center;
+    padding-top: 0;
+    margin-top: 5px;
+}
+
+canvas {
+    margin-top: 20px;
+}
+
+#github-link {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 25px;
+    top: 30px;
+    background-image: url("00assets/github-mark.svg");
+    background-size: cover;
 }

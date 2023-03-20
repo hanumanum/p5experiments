@@ -6,7 +6,7 @@ html body * {
 }
 
 body {
-    background-image: url(/00-showcases/circle-packing.gif);
+    background-image: url(00-showcases/circle-packing.gif);
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: 260px;

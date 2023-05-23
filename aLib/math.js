@@ -1,3 +1,8 @@
+
+const getRandomInt = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
 function randomDirection() {
     return (Math.random() > 0.5) ? 1 : -1;
 }
@@ -7,7 +12,6 @@ function getRandomsArray(len, min, max) {
     for (let i = 0; i < len; i++) {
         randoms.push(int(random(min, max)))
     }
-
     return randoms;
 }
 
